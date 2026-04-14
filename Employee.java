@@ -20,7 +20,7 @@ public class Employee {
 		while(true) {
 			System.out.println("1. Add Employee");
 			System.out.println("2. View All Employee");
-			System.out.println("3. Update View");
+			System.out.println("3. Modify Data");
 			System.out.println("4. Delete Employee");
 			System.out.println("5. Exit");
 			System.out.println("Enter your choice: ");
@@ -57,13 +57,8 @@ public class Employee {
 		String sql = "delete from employee where id = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setInt(1, id);
-		int rows = ps.executeUpdate();
-		if(rows >0) {
-			System.out.println("Data added!");
-		}
-		else {
-			System.out.println("Data failed!");
-		}
+		ps.executeUpdate();
+		System.out.println("Data Successfully Deleted!");
 	}
 
 	private static void updateEmployee() throws SQLException {
@@ -87,10 +82,10 @@ public class Employee {
 		ps.setInt(4, id);
 		int rows = ps.executeUpdate();
 		if(rows >0) {
-			System.out.println("Data added!");
+			System.out.println("Data Updated!");
 		}
 		else {
-			System.out.println("Data failed!");
+			System.out.println("Modification Failed!");
 		}
 		
 	}
@@ -136,10 +131,10 @@ public class Employee {
 		
 		int rows = ps.executeUpdate();
 		if(rows >0) {
-			System.out.println("Data added!");
+			System.out.println("Data Added!");
 		}
 		else {
-			System.out.println("Data failed!");
+			System.out.println("Data Failed!");
 		}
 		
 	}
